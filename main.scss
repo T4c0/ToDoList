@@ -1,24 +1,127 @@
-:root{
-    --clr-primary: rgb(54,112,199);
+:root {
+    --clr-primary: rgb(54, 112, 199);
     --clr-light: #f4f4f4;
     --clr-dark: #333;
-    --clr-warning: rgb(99,36,36);
-}
-
-*,
-*::before,
-*::after {
+    --clr-warning: rgb(99, 36, 36);
+  }
+  
+  *,
+  *::before,
+  *::after {
     font-family: inherit;
     box-sizing: border-box;
-}
-
-body{
+  }
+  
+  body {
     margin: 0;
     font-family: "Work Sans", sans-serif;
     font-weight: 300;
     font-size: 1.5rem;
     background-color: var(--clr-primary);
     color: var(--clr-light);
-
     display: grid;
-}
+    grid: "header header header header" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+  }
+
+  .title {
+    grid-area: header;
+    text-align: center;
+    font-size: calc(7vw +2rem);
+    font-weight: 900;
+    color: rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+    margin: -0.2em 0 0.5rem;
+  }
+
+  .all-tasks {
+    grid-area: lists;
+  }
+
+  .task-list {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    list-style: circle;
+    padding-left: 1.1rem;
+  }
+
+  form {
+    display: flex;
+  }
+
+  .btn {              //universal button settings
+    cursor: pointer;  //show it is interactable
+    background: 0;    //0 same as transparent
+    border: 0;
+    padding: 0;
+    color: inherit;
+  }
+
+  .btn.create {
+    font-size: 1.5rem;      //bigger font size
+    font-weight: 900;       // more visualy strong
+    margin-right: 0.25em;
+    transition: opacity 250ms ease-in;  //ease on button hover transition
+  }
+
+  .btn.create:hover {
+    opacity: 0.7;
+  }
+
+  
+
+  .new {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    border-bottom: 1px solid currentColor;
+    font-size: inherit;
+    outline:none;
+
+    transition: border-bottom 150ms ease-in;
+    order: 2;
+  }
+
+  .new:focus {
+    border-bottom-width: 3px;     //after box is clicked animation makes it bigger.
+  }
+
+  .new:focus::placeholder {
+    opacity: 0.2;
+  }
+
+  .new.list {
+    font-size: 1.2rem;
+  }
+
+  .active-list {
+    font-weight: 700;
+  }
+
+  .all-tasks {
+    --spacer: 2rem;   //local scoped custome property instead in the root. 
+
+    grid-area: active;
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    padding: 0;
+    margin: 0;
+  }
+
+  .task-list-title {
+    padding: var(--spacer);
+    background: #e4e4e4;
+    
+  }
+
+  .task-list {
+    padding: var(--spacer);
+    margin: 0;
+  }
+
+  .task-count {
+    margin: 0;
+  }
+
+  .todo-count {
+    margin: 0;
+  }
