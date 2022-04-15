@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
@@ -142,4 +143,25 @@ function clearElement(element) {
 
 }
 
+=======
+const listsContainer = document.querySelector('[data-lists]')  //data atribute 'data-lists
+
+let lists = ['name', 'todo']          //variable for list
+
+function render() {     //Method to Render list 
+    clearElement(listsContainer)    //clear element with function
+    lists.forEach(list => {
+        const listElement = document.createElement('li')  // pass element we want 'li'
+        listElement.classList.add("list-name")          //add class to 'li'
+        listElement.innerText = list                    //set name of actuall element with text inside of it.
+        listsContainer.appendChild(listElement)         //append to list container
+    })
+}
+
+function clearElement(element) {    //Clear function
+
+}
+
+
+>>>>>>> 0c53494fc14bb2e79e312720ce6e8b5a20bee912
 render()
